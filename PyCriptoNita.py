@@ -1,5 +1,6 @@
 import string
 import random
+
 print('.PyCriptoNita')
 
 def show_banner():
@@ -14,26 +15,24 @@ def show_banner():
     """
     print(banner)
 
-
 # Todos os caracteres, incluindo letras, dígitos, pontuações e caracteres especiais
 all_characters = (
-    string.ascii_uppercase +  # Letras maiúsculas A-Z
-    string.ascii_lowercase +  # Letras minúsculas a-z
-    string.digits +           # Dígitos 0-9
-    string.punctuation +      # Pontuações
-    " ñÑÇçÃãÕõÁáÉéÍíÓóÚúÂâÊêÎîÔôÛûÀàÈèÌìÒòÙùÄäËëÏïÖöÜü"  # Caracteres especiais
+    string.ascii_uppercase +
+    string.ascii_lowercase +
+    string.digits +
+    string.punctuation +
+    " ñÑÇçÃãÕõÁáÉéÍíÓóÚúÂâÊêÎîÔôÛûÀàÈèÌìÒòÙùÄäËëÏïÖöÜü"
 )
 
-#print(all_characters)
-
+# Função para gerar chave de criptografia
 def key_generator(all_characters):
     list_characters = list(all_characters)
     random.shuffle(list_characters)
     key = ''.join(list_characters)
     return key
-key = key_generator(all_characters)
-def input_msg():
 
+# Função para receber uma mensagem de entrada
+def input_msg():
     while True:
         msg = input("Enter your message: ")
         if len(msg) < 1:
@@ -43,7 +42,8 @@ def input_msg():
         else:
             return msg
 
-def encrypt_msg(msg):
+# Função para criptografar a mensagem
+def encrypt_msg(msg, key):
     criptonita = ''
     for i in range(len(msg)):
         if msg[i] in key:
@@ -53,7 +53,8 @@ def encrypt_msg(msg):
             criptonita += msg[i]
     return criptonita
 
-def decrypt_msg(encrypted_msg):
+# Função para descriptografar a mensagem
+def decrypt_msg(encrypted_msg, key):
     original_msg = ''
     for i in range(len(encrypted_msg)):
         if encrypted_msg[i] in key:
@@ -63,8 +64,36 @@ def decrypt_msg(encrypted_msg):
             original_msg += encrypted_msg[i]
     return original_msg
 
-# Testando
-'''
-decrypted_message = decrypt_msg(encrypted_message)
-print("Decrypted Message:", decrypted_message)
-'''
+# Função principal para interação com o usuário
+def main():
+    show_banner()
+    key = key_generator(all_characters)  # Gera a chave uma vez ao iniciar o programa
+
+    while True:
+        user = input('[1] Encrypt\n[2] Decrypt\n[3] Last key\n[4] Generate key\n[5] About\n[6] Quit\n - ')
+        if user == '6':
+            print('PyCriptoNita is dead.')
+            break
+        elif user == '1':
+            message = input_msg()
+            encrypted_message = encrypt_msg(message, key)
+            print("Encrypted Message:", encrypted_message)
+        elif user == '2':
+            encrypted_msg = input('Enter your encrypted message: ')
+            if len(key) == 143:
+                decrypted_message = decrypt_msg(encrypted_msg, key)
+                print("Decrypted Message:", decrypted_message)
+            else:
+                print('This is not a valid key\n\n\n\n')
+        elif user == '3':
+            print('Last key:')
+            print(key)
+        elif user == '4':
+            key = key_generator(all_characters)  # Gera uma nova chave
+            print("New key generated.")
+        elif user == '5':
+            show_banner()
+
+# Executa a função principal
+if __name__ == "__main__":
+    main()
