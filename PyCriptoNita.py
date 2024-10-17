@@ -3,6 +3,12 @@ import random
 
 print('.PyCriptoNita')
 
+def space(lines):
+    for x in range(lines):
+        print('\n')
+
+def line():
+    print('    ############################################################')
 def show_banner():
     banner = """
     ############################################################
@@ -93,6 +99,10 @@ def main():
             print("New key generated.")
         elif user == '5':
             show_banner()
+            print('    By Felici4no')
+            print('    https://github.com/Felici4no/PyCriptoNita')
+            space(1)
+            line()
 
 # Executa a função principal
 if __name__ == "__main__":
