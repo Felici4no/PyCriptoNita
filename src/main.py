@@ -1,10 +1,14 @@
 from PyCriptoNita import *
+from mod.pretty import clear_terminal, get_escape
 print('.main')
-show_banner()
 
 key = key_generator(all_characters)
 
 while True:
+
+    clear_terminal()
+    show_banner()
+    
     user = input('[1] Encrypt\n[2] Decrypt\n[3] Last key\n[4] Generate key\n[5] About\n[6] Quit\n - ')
 
     match user:
@@ -45,4 +49,4 @@ while True:
 
            print("Unexpected input") 
 
-print('PyCriptoNita is dead.')
+print('{}PyCriptoNita is dead.{}'.format(get_escape(1, 31), get_escape()))
