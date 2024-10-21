@@ -26,5 +26,5 @@ else
   echo ;
   echo -e "Program file cannot be found! $ERROR_ESCAPE < $PROGRAM_PATH > $RESET_ESCAPE";
   echo ;
-  exit 1; # retorn 1 (erro)
+  exit 1; # retorna 1 (erro)
 fi
