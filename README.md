@@ -12,6 +12,15 @@
 2. **Enter your message:** The script will prompt you to input the message you want to encrypt or decrypt.
 3. **View the result:** The encrypted or decrypted message will be displayed on the console.
 
+---
+
+You can also use the `run` shell script to start the program if you want. _(bash and python will be required)_
+
+```shell
+# this will run the shell script
+bash run.sh
+```
+
 ### Example:
 ```
 Enter your message: Hello, world!
