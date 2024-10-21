@@ -1,11 +1,11 @@
-def clearTerminal() -> None:
+def clear_terminal() -> None:
     """Limpa todo o conteúdo que foi printado no terminal.
     Não retorna nada
     """
 
     print('\033[H\033[2J', end = '')
 
-def getEscape(body_font       : int = 0,
+def get_escape(body_font       : int = 0,
               foreground_color: int = 0,
               background_color: int = 0) -> str:
     r"""Retorna uma ANSI escape em forma de String recebendo apenas
