@@ -1,7 +1,16 @@
-from PyCriptoNita import *
 from mod.pretty import clear_terminal, get_escape
 print('.main')
 
+# importando a classe principal do módulo criado
+from pycriptonita import PyCriptoNita
+
+# executando a função dessa mesma classe
+PyCriptoNita.run()
+
+# testando apenas os comandos acima, o resto não deverá ser executado
+exit()
+
+"""
 key = key_generator(all_characters)
 
 while True:
@@ -50,3 +59,4 @@ while True:
            print("Unexpected input") 
 
 print('{}PyCriptoNita is dead.{}'.format(get_escape(1, 31), get_escape()))
+"""
