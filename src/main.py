@@ -1,6 +1,3 @@
-from mod.pretty import clear_terminal, get_escape
-print('.main')
-
 # importando a classe principal do módulo criado
 from pycriptonita import PyCriptoNita
 
